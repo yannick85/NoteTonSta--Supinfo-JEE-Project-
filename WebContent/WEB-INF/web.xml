@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+ <servlet>
+    <servlet-name>JerseyWebApplication</servlet-name>
+    <servlet-class>
+        com.sun.jersey.spi.container.servlet.ServletContainer
+    </servlet-class>
+    <init-param>
+        <param-name>
+            com.sun.jersey.config.property.packages
+        </param-name>
+        <param-value>rest</param-value>
+    </init-param>
+</servlet>
+<servlet-mapping>
+    <servlet-name>JerseyWebApplication</servlet-name>
+    <url-pattern>/resources/*</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>ServletIndex</servlet-name>
+    <servlet-class>
+        servlet.IndexServlet
+    </servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ServletIndex</servlet-name>
+    <url-pattern>/index</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>ServletIndex</servlet-name>
+    <url-pattern>/index.html</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>AddInterventionServlet</servlet-name>
+    <servlet-class>
+        servlet.AddInterventionServlet
+    </servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>AddInterventionServlet</servlet-name>
+    <url-pattern>/auth/addintervention</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>AddMarkServlet</servlet-name>
+    <servlet-class>
+        servlet.AddMarkServlet
+    </servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>AddMarkServlet</servlet-name>
+    <url-pattern>/addmark</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>InterventionServlet</servlet-name>
+    <servlet-class>
+        servlet.InterventionServlet
+    </servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>InterventionServlet</servlet-name>
+    <url-pattern>/intervention</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>ListInterventionServlet</servlet-name>
+    <servlet-class>
+        servlet.ListInterventionServlet
+    </servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ListInterventionServlet</servlet-name>
+    <url-pattern>/campus</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>
+        servlet.LogoutServlet
+    </servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/logout</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>LogServlet</servlet-name>
+    <servlet-class>
+        servlet.LogServlet
+    </servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>LogServlet</servlet-name>
+    <url-pattern>/log</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>ModifyInterventionServlet</servlet-name>
+    <servlet-class>
+        servlet.ModifyInterventionServlet
+    </servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ModifyInterventionServlet</servlet-name>
+    <url-pattern>/auth/updateintervention</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>MyInterventionServlet</servlet-name>
+    <servlet-class>
+        servlet.MyInterventionServlet
+    </servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>MyInterventionServlet</servlet-name>
+    <url-pattern>/auth/myintervention</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>RegisterSpeakerServlet</servlet-name>
+    <servlet-class>
+        servlet.RegisterSpeaker
+    </servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>RegisterSpeakerServlet</servlet-name>
+    <url-pattern>/register</url-pattern>
+</servlet-mapping>
+
+<filter>
+    <filter-name>AuthentificationFilter</filter-name>
+    <filter-class>filter.Authentification</filter-class>
+</filter>
+
+  <filter-mapping>
+    <filter-name>AuthentificationFilter</filter-name>
+    <url-pattern>/auth/*</url-pattern>
+  </filter-mapping>
+
+	<listener>
+		<listener-class>listener.PersistenceAppListener</listener-class>
+	</listener>
+
+</web-app>
